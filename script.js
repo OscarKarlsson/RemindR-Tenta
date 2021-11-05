@@ -11,11 +11,12 @@ var todo = new function(){
         if(this.tasks.length>0){
             console.log("if")
             for(i=0; i<this.tasks.length;i++){
-                data += '<div class="card-info">' +
+                data += '<div class="col-lg-4 col-md-6">' +
+                            '<div class="card-info">' +
                             '<p id="textStyle">'+this.tasks[i]+'</p>' +
                             '<button id="editBtn" onclick="todo.Edit('+i+')"><i class="fa fa-pencil"></i></button>' +
                             '<button id="DeleteBtn" onclick="todo.Delete('+i+')"><i class="fa fa-trash"></i></button>' +
-                        '</div>';
+                        '</div></div>';
             }
         }
         return this.el.innerHTML = data;
@@ -83,12 +84,13 @@ var movie = new function(){
         if(this.movies.length>0){
             console.log("if")
             for(i=0; i<this.movies.length;i++){
-                data += '<div class="card-info">' +
+                data += '<div class="col-lg-4 col-md-6">' +
+                        '<div class="card-info">' +
                             '<h5 id="textStyle">'+this.movies[i].Title+'</h5>' +
                             '<p id="textStyle">'+this.movies[i].Year+'</p>' +
                             '<button id="editBtn" onclick="movie.Show('+i+')"><i class="fa fa-eye"></i></button>' +
                             '<button id="DeleteBtn" onclick="movie.Delete('+i+')"><i class="fa fa-trash"></i></button>' +
-                        '</div>';
+                        '</div></div>';
             }
         }
         return this.el.innerHTML = data;
@@ -102,6 +104,7 @@ var movie = new function(){
         .catch((error) => console.error(error));
         console.log("http://www.omdbapi.com/?t=" + el.value + "&apikey=ac8565a0");
         console.log(res.data);
+        el.value = '';
         this.DisplaySearch(res.data);
         
     }
