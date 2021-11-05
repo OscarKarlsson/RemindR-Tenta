@@ -1,8 +1,14 @@
 .addBtn{
     width: 42px;
     height: 42px;
-    background: #CCC5B9;
+    background: #403D39;
     border-radius: 10px;
+    border: 2px solid #EB5E28;
+    animation-duration: 0.4s;
+}
+
+.addBtn:hover{
+    background: #EB5E28;
 }
 
 *{

@@ -23,10 +23,10 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                       <li class="nav-item">
-                        <a class="nav-link" onclick="GoToTasks()">Tasks</a>
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#navbarText" onclick="GoToTasks()">Tasks</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" onclick="GoToMovies()">Movies</a>
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#navbarText" onclick="GoToMovies()">Movies</a>
                       </li> 
                     </ul>
                     
@@ -133,8 +133,8 @@
                   <form method="POST" action="javascript:void(0);"
                   onsubmit="movie.Add()">
                     <div class="container" style="text-align: center;">
-                        <div class="row">
-                            <img src="" id="posterSearch">
+                        <div class="thumbnail">
+                            <img src="" id="posterSearch" class="img-responsive">
                         </div>
                         <div class="row">
                             <h3 id="titleSearch">
@@ -157,6 +157,42 @@
               </div>
             </div>
           </div>
+
+          <!-- Show Movie modal -->
+          <div class="modal fade" id="showMovieModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" style="background-color: #403D39;">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Movie</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="container" style="text-align: center;">
+                        <div class="thumbnail">
+                            <img src="" id="posterShow" class="img-responsive">
+                        </div>
+                        <div class="row">
+                            <h3 id="titleShow">
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <p id="yearShow"></p>
+                        </div>
+                        <div class="row">
+                            <p id="plotShow"></p>
+                        </div>
+                    </div>
+                  
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
         <script src="script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -86,6 +86,7 @@ var movie = new function(){
                 data += '<div class="card-info">' +
                             '<h5 id="textStyle">'+this.movies[i].Title+'</h5>' +
                             '<p id="textStyle">'+this.movies[i].Year+'</p>' +
+                            '<button id="editBtn" onclick="movie.Show('+i+')"><i class="fa fa-eye"></i></button>' +
                             '<button id="DeleteBtn" onclick="movie.Delete('+i+')"><i class="fa fa-trash"></i></button>' +
                         '</div>';
             }
@@ -128,21 +129,14 @@ var movie = new function(){
         }
     };
 
-    this.Edit = function(item){
-        el = document.getElementById('edit-todo');
-        el.value = this.tasks[item];
-        self=this;
-        $("#editTaskModal").modal("show");
-        document.getElementById('save-edit').onsubmit = function
-        (){
-            var task = el.value;
-            if(task){
-                console.log("if stat")
-                self.tasks.splice(item, 1, task.trim());
-                self.fetchAll();
-                $("#editTaskModal").modal("hide");
-            }
-        }
+    this.Show = function(item){
+        var movie = this.movies[item];
+        console.log("show function")
+        document.getElementById("posterShow").src = movie.Poster;
+        document.getElementById("titleShow").innerText = movie.Title;
+        document.getElementById("yearShow").innerText = movie.Year;
+        document.getElementById("plotShow").innerText = movie.Plot;
+        $("#showMovieModal").modal("toggle");
     };
 
     this.Delete = function(item){
