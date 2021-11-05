@@ -9,7 +9,7 @@ var todo = new function(){
         var data = '';
 
         if(this.tasks.length>0){
-            console.log("if")
+            
             for(i=0; i<this.tasks.length;i++){
                 data += '<div class="col-lg-4 col-md-6">' +
                             '<div class="card-info">' +
@@ -44,7 +44,7 @@ var todo = new function(){
         (){
             var task = el.value;
             if(task){
-                console.log("if stat")
+                
                 self.tasks.splice(item, 1, task.trim());
                 self.fetchAll();
                 $("#editTaskModal").modal("hide");
@@ -59,7 +59,7 @@ var todo = new function(){
 }
 
 GoToMovies = function(){
-    console.log("go to movies");
+    
     PageTitle.innerHTML = 'Movies';
     
     addbutton.setAttribute('data-bs-target', '#movieModal');
@@ -67,7 +67,7 @@ GoToMovies = function(){
 }
 
 GoToTasks = function(){
-    console.log("go to tasks");
+    
     PageTitle.innerHTML = 'Tasks';
     addbutton.setAttribute('data-bs-target', '#taskModal');
     todo.fetchAll();
@@ -80,9 +80,9 @@ var movie = new function(){
 
     this.fetchAll = function(){
         var data = '';
-        console.log("fetch movies")
+        
         if(this.movies.length>0){
-            console.log("if")
+            
             for(i=0; i<this.movies.length;i++){
                 data += '<div class="col-lg-4 col-md-6">' +
                         '<div class="card-info">' +
@@ -102,8 +102,7 @@ var movie = new function(){
         let res = await axios
         .get("http://www.omdbapi.com/?t=" + el.value + "&apikey=ac8565a0")
         .catch((error) => console.error(error));
-        console.log("http://www.omdbapi.com/?t=" + el.value + "&apikey=ac8565a0");
-        console.log(res.data);
+        
         el.value = '';
         this.DisplaySearch(res.data);
         
@@ -115,17 +114,17 @@ var movie = new function(){
         document.getElementById("yearSearch").innerText = item.Year;
         document.getElementById("plotSearch").innerText = item.Plot;
         currMovie = item;
-        console.log("test")
+        
     }
 
     this.Add = function(){
         
-        console.log(currMovie.Title);
+        
         var movie = currMovie;
         
         if(movie){
             this.movies.push(movie);
-            console.log("Add");
+            
             $("#searchMovieModal").modal("toggle");
             
             this.fetchAll();
@@ -134,7 +133,7 @@ var movie = new function(){
 
     this.Show = function(item){
         var movie = this.movies[item];
-        console.log("show function")
+        
         document.getElementById("posterShow").src = movie.Poster;
         document.getElementById("titleShow").innerText = movie.Title;
         document.getElementById("yearShow").innerText = movie.Year;
